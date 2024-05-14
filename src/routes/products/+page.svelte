@@ -1,6 +1,18 @@
 <script lang="ts">
-    console.log(" PRODUCTS ")
+	console.log(' PRODUCTS ');
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <h1>Products</h1>
-<p>Visit <a href="/"> Come back </a> </p> s
+{#each data.products as { title, description, stock }}
+	<div>
+		<h2>{title}</h2>
+		<p>Stock: {stock}</p>
+		{@html description}
+	</div>
+	<span>========================</span>
+{/each}
+<p>Visit <a href="/"> {JSON.stringify(data)} </a></p>
+s
