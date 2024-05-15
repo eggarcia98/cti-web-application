@@ -5,7 +5,7 @@
 	export let data: PageData;
 </script>
 
-<h1>Products</h1>
+<h1>Productos</h1>
 {#each data.products as { title, description, stock }}
 	<div>
 		<h2>{title}</h2>
@@ -14,5 +14,3 @@
 	</div>
 	<span>========================</span>
 {/each}
-<p>Visit <a href="/"> {JSON.stringify(data)} </a></p>
-s
