@@ -1,4 +1,5 @@
 import type { Actions } from './$types';
+import { redirect, fail } from '@sveltejs/kit';
 
 export const actions = {
 	default: async (event) => {
@@ -17,9 +18,18 @@ export const actions = {
 		});
 
 		const authorization = await response.json();
-		const { message, authorized } = authorization;
-		if (response.status) return { error: message, authorized };
+		const { message, authorized, token } = authorization;
 
-		return { message, authorized };
+		if (response.status !== 200) return { error: message, authorized };
+
+		event.cookies.set('AuthorizationToken', `Bearer ${token}`, {
+			httpOnly: true,
+			path: '/',
+			secure: true,
+			sameSite: 'strict',
+			maxAge: 60 * 60 * 24 // 1 day
+		});
+
+		throw redirect(302, '/');
 	}
 } satisfies Actions;
