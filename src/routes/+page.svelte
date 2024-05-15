@@ -1,6 +1,6 @@
 <script lang="ts">
-	
-    import type { PageData } from './$types';
+	import { goto } from '$app/navigation';
+	import type { PageData } from './$types';
 
 	//  const load: PageData = async ({ fetch, params }: any) => {
 	// 	const res = await fetch(`/api/items/${params.id}`);
@@ -13,4 +13,4 @@
 </script>
 
 <h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="/products">Go To Product</a></p>
+<p>Visit <button on:click={() => goto('/products')}>Go To Product</button></p>

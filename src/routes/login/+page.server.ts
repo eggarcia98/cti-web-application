@@ -27,8 +27,8 @@ export const actions = {
 			path: '/',
 			secure: true,
 			sameSite: 'strict',
-			maxAge: 60, // EXPIRE in 1min
-			expires: new Date(new Date().getTime() + 60)
+			maxAge: 120, // EXPIRE in 1min
+			expires: new Date(new Date().getTime() + 120)
 		});
 
 		throw redirect(302, '/');
