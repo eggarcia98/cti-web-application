@@ -14,18 +14,7 @@
 
 <head>
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="https://preline.co/favicon.ico" />
 
-	<!-- Font -->
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-		rel="stylesheet"
-	/>
-
-	<!-- Theme Check and Update -->
-
-	<!-- CSS HS -->
-	<link rel="stylesheet" href="https://preline.co/assets/css/main.min.css" />
 </head>
 
 <div class="dark:bg-neutral-900">
