@@ -9,101 +9,79 @@
 </script>
 
 <div>
-	<div class="flex bg-black flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
+	<div
+		class="flex flex-wrap border-b-2 sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-4 dark:bg-neutral-800"
+	>
 		<nav
-			class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto"
+			class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between"
 			aria-label="Global"
 		>
-			<div class="md:col-span-3">
-				<!-- Logo -->
-
-				<!-- End Logo -->
-			</div>
-
-			<!-- Button Group -->
-			<div class="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-				<!-- <button
-						type="button"
-						class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:hover:bg-white/10 dark:text-white dark:hover:text-white"
+			<a class="sm:order-1 flex-none text-xl font-semibold dark:text-white" href="#">Haciendola</a>
+			<div class="sm:order-3 flex items-center gap-x-2">
+				<button
+					type="button"
+					class="sm:hidden hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10"
+					data-hs-collapse="#navbar-alignment"
+					aria-controls="navbar-alignment"
+					aria-label="Toggle navigation"
+				>
+					<svg
+						class="hs-collapse-open:hidden flex-shrink-0 size-4"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						><line x1="3" x2="21" y1="6" y2="6" /><line x1="3" x2="21" y1="12" y2="12" /><line
+							x1="3"
+							x2="21"
+							y1="18"
+							y2="18"
+						/></svg
 					>
-						Sign in
-					</button> -->
+					<svg
+						class="hs-collapse-open:block hidden flex-shrink-0 size-4"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg
+					>
+				</button>
 				{#if !isAuthorized}
 					<button
-						class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500"
 						type="button"
+						class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800"
+						on:click={() => goto('/login')}
 					>
 						Log In
 					</button>
 				{/if}
-
-				<div class="md:hidden">
-					<button
-						type="button"
-						class="hs-collapse-toggle size-[38px] flex justify-center items-center text-sm font-semibold rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700"
-						data-hs-collapse="#navbar-collapse-with-animation"
-						aria-controls="navbar-collapse-with-animation"
-						aria-label="Toggle navigation"
-					>
-						<svg
-							class="hs-collapse-open:hidden flex-shrink-0 size-4"
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<line x1="3" x2="21" y1="6" y2="6" />
-							<line x1="3" x2="21" y1="12" y2="12" />
-							<line x1="3" x2="21" y1="18" y2="18" />
-						</svg>
-						<svg
-							class="hs-collapse-open:block hidden flex-shrink-0 size-4"
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="M18 6 6 18" />
-							<path d="m6 6 12 12" />
-						</svg>
-					</button>
-				</div>
 			</div>
-			<!-- End Button Group -->
-
-			<!-- Collapse -->
 			<div
-				id="navbar-collapse-with-animation"
-				class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6"
+				id="navbar-alignment"
+				class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2"
 			>
-				<div
-					class="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0"
-				>
-					<div>
-						<a
-							class="inline-block text-white rounded-xl p-2 border-2 hover:text-gray-600 dark:text-white dark:hover:text-neutral-300"
-							href="/">Home</a
-						>
-					</div>
-					<div>
-						<a
-							class="inline-block text-white rounded-xl p-2 border-2 hover:text-gray-600 hover:text-gray-600 dark:text-white dark:hover:text-neutral-300"
-							href="/products">Products</a
-						>
-					</div>
+				<div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
+					<a class="font-medium text-blue-500" href="/" aria-current="page">Home</a>
+					<a
+						class="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
+						href="/products">Products</a
+					>
+					<a
+						class="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
+						href="#">About</a
+					>
 				</div>
 			</div>
-			<!-- End Collapse -->
 		</nav>
 	</div>
 </div>

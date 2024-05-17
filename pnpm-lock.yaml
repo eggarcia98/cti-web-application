@@ -8,6 +8,9 @@ dependencies:
   '@preline/accordion':
     specifier: ^2.1.0
     version: 2.1.0
+  '@preline/collapse':
+    specifier: ^2.1.0
+    version: 2.1.0
   '@sveltejs/adapter-static':
     specifier: ^3.0.1
     version: 3.0.1(@sveltejs/kit@2.5.8)
@@ -413,6 +416,10 @@ packages:
 
   /@preline/accordion@2.1.0:
     resolution: {integrity: sha512-eCW6byDHzo5qkmAIXJ9mXJUm7ArjgIOoRqcJMPQmL3Ytph3eIFv2Uw+hR28C+8oSKlRckRkb6tZlgoQKsjA1Hw==}
+    dev: false
+
+  /@preline/collapse@2.1.0:
+    resolution: {integrity: sha512-+QwEe+LNseV80GWH5vOd1RscpFK+o0j2E+1sph5+o8poBIiC81xS2AlhPpuMykRvy/LtZMsptm7Ppc5b0Q4fPw==}
     dev: false
 
   /@rollup/rollup-android-arm-eabi@4.17.2:

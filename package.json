@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"@preline/accordion": "^2.1.0",
+		"@preline/collapse": "^2.1.0",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"preline": "^2.1.0"
 	}
