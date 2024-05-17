@@ -6,6 +6,8 @@ export const csr = false; // If both `csr` and `ssr` are `false`, nothing will b
 export const handle: Handle = async ({ event, resolve }) => {
 	const notAuthenticationRouteRequires = ['/error/auth', '/', '/login'];
 
+	(event as any).locals['authorized'] = false;
+
 	const { cookies } = event;
 	const AuthorizationToken = cookies.get('AuthorizationToken');
 
@@ -24,5 +26,8 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const { authorized } = await response.json();
 	if (!authorized) redirect(302, '/error/auth');
 
+	console.log(event.route.id);
+	if (event.route.id === '/login') redirect(302, '/');
+	(event as any).locals['authorized'] = true;
 	return await resolve(event);
 };

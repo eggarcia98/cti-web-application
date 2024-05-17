@@ -1,5 +1,15 @@
-import type { Actions } from './$types';
+import type { Actions, PageServerLoad } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
+
+export const load: PageServerLoad = async ({ fetch, params }) => {
+	// const res = await fetch(`http://localhost:3006/api/products`);
+	// const data = await res.json();
+	// const { products } = data;
+
+	// console.log(data)
+
+	return { data: [] };
+};
 
 export const actions = {
 	default: async (event) => {

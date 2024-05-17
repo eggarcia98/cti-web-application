@@ -5,11 +5,9 @@
 	export let data: PageData;
 </script>
 
-<h1>Productos</h1>
-
 <div class=" max-w-6xl mx-auto w-full bg-white rounded-lg shadow-md dark:bg-neutral-800 pt-5">
 	{#each data.products as { title, description, stock }}
-		<div class="">
+		<div class="mt-5">
 			<details
 				class="group inline-flex items-center gap-x-3 text-sm w-full text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400"
 			>
