@@ -31,6 +31,6 @@ export const actions = {
 			expires: new Date(new Date().getTime() + 120)
 		});
 
-		throw redirect(302, '/');
+		redirect(302, '/');
 	}
 } satisfies Actions;

@@ -1,5 +1,6 @@
 import { redirect, type Handle } from '@sveltejs/kit';
 import { parse } from 'svelte/compiler';
+export const csr = false; // If both `csr` and `ssr` are `false`, nothing will be rendered!
 
 // /src/hooks.server.ts
 export const handle: Handle = async ({ event, resolve }) => {

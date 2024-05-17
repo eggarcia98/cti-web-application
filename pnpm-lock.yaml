@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@preline/accordion':
+    specifier: ^2.1.0
+    version: 2.1.0
   '@sveltejs/adapter-static':
     specifier: ^3.0.1
     version: 3.0.1(@sveltejs/kit@2.5.8)
@@ -406,6 +409,10 @@ packages:
 
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
+    dev: false
+
+  /@preline/accordion@2.1.0:
+    resolution: {integrity: sha512-eCW6byDHzo5qkmAIXJ9mXJUm7ArjgIOoRqcJMPQmL3Ytph3eIFv2Uw+hR28C+8oSKlRckRkb6tZlgoQKsjA1Hw==}
     dev: false
 
   /@rollup/rollup-android-arm-eabi@4.17.2:

@@ -1,20 +1,6 @@
 <script lang="ts" src="https://cdn.jsdelivr.net/npm/preline/dist/preline.min.js">
 	import { goto } from '$app/navigation';
-	import type { PageData } from './$types';
-
-	//  const load: PageData = async ({ fetch, params }: any) => {
-	// 	const res = await fetch(`/api/items/${params.id}`);
-	// 	const item = await res.json();
-
-	// 	return { item };
-	// };
-	// console.log(PUBLIC_BACKEND_HOST);
-	console.log(' HOME ');
 </script>
-
-<head>
-	<!-- Favicon -->
-</head>
 
 <div class="dark:bg-neutral-900">
 	<!-- ========== HEADER ========== -->
@@ -174,9 +160,9 @@
 				<h2 class="font-medium text-black text-2xl sm:text-4xl dark:text-white">Contacts</h2>
 			</div>
 
-			<div class="grid grid-cols-1 lg:grid-cols-2 lg:items-center gap-6 md:gap-8 lg:gap-12">
+			<div class="grid grid-cols-1 lg:grid-cols-1 lg:items-center gap-6 md:gap-8 lg:gap-12">
 				<div
-					class="aspect-w-16 aspect-h-6 lg:aspect-h-14 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800"
+					class="aspect-w-16 aspect-h-6 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800"
 				>
 					<img
 						class="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
