@@ -1,8 +1,14 @@
 <script lang="ts">
+	import type { PageData } from './$types';
+	export let data: PageData;
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+
+	$: isAuthorized = $page.data.authorized;
 </script>
 
-<svelte:head>
+<div>
 	<div class="flex bg-black flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-7">
 		<nav
 			class="relative max-w-7xl w-full flex flex-wrap md:grid md:grid-cols-12 basis-full items-center px-4 md:px-6 md:px-8 mx-auto"
@@ -22,13 +28,14 @@
 					>
 						Sign in
 					</button> -->
-				<button
-					type="button"
-					class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500"
-					on:click={() => goto('/login')}
-				>
-					Log In
-				</button>
+				{#if !isAuthorized}
+					<button
+						class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-lime-400 text-black hover:bg-lime-500 transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-lime-500"
+						type="button"
+					>
+						Log In
+					</button>
+				{/if}
 
 				<div class="md:hidden">
 					<button
@@ -99,5 +106,6 @@
 			<!-- End Collapse -->
 		</nav>
 	</div>
-</svelte:head>
+</div>
+
 <slot />

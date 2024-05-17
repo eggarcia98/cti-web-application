@@ -1,14 +1,20 @@
 import type { Actions, PageServerLoad } from './$types';
 import { redirect, fail } from '@sveltejs/kit';
 
-export const load: PageServerLoad = async ({ fetch, params }) => {
-	// const res = await fetch(`http://localhost:3006/api/products`);
-	// const data = await res.json();
-	// const { products } = data;
+export const load: PageServerLoad = async ({ fetch, cookies }) => {
+	const AuthorizationToken = cookies.get('AuthorizationToken');
 
-	// console.log(data)
+	const response = await fetch('http://localhost:3006/api/user/authorizate', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({ AuthorizationToken })
+	});
 
-	return { data: [] };
+	const data = await response.json();
+	if (data.authorized) redirect(302, '/');
+	return data;
 };
 
 export const actions = {

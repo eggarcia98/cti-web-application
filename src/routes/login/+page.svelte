@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { PageData } from './$types';
 	import type { ActionData } from './$types';
-
 	export let form: ActionData;
+	export let data: PageData;
 </script>
 
 <div class="w-full inline-flex justify-center">
@@ -109,7 +110,7 @@
 				<!-- End Form -->
 			</div>
 		</div>
-        
+
 		{#if form?.error}
 			<div class="notice error">
 				{form.error}
