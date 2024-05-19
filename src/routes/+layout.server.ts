@@ -9,10 +9,7 @@ export const load: LayoutServerLoad = async ({ fetch, cookies, route }) => {
 		{
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json',
-				cookies: {
-					pp: 'sda'
-				}
+				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({ AuthorizationToken })
 		}

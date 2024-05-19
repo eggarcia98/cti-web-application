@@ -1,23 +1,23 @@
 # docker-compose.yml
 
-
 services:
-  external:
-    container_name: external
+  haciendola-frontend:
+    container_name: haciendola-frontend
     # The name of the image that will be created when building this container
-    image: external-website
-    build:
-      context: .
-      dockerfile: Dockerfile
-    user: "node"
+    image: haciendola-frontend
+    build: .
     environment:
       # Internal server error messages will not send stacktrace to the browser in production
-      - NODE_ENV=production
-      # Sets the timezone of the containers OS
-      - TZ=Pacific/Auckland
+      NODE_ENV: production
+      PUBLIC_BACKEND_HOST: haciendol-backend
+      PUBLIC_BACKEND_PORT: 3006
     # Points to a file with the sensitive environment variables
-    env_file:
-      - .env
     restart: unless-stopped
     ports:
       - 3000:3000
+    networks:
+      - haciendola-network
+
+networks:
+  haciendola-network:
+    external: true

@@ -14,6 +14,9 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
 		}),
+		csrf: {
+			checkOrigin: false
+		},
 		files: {
 			hooks: {
 				server: 'src/hooks.server.ts'
