@@ -19,7 +19,7 @@ Step 2. Build and Deploy it using the docker-compose configuration included in t
 $ docker-compose up --build -d
 ```
 
-Step 3. You can access to the web page in the URL: [http://localhost:3000/]
+Step 3. You can access to the web page in the URL: http://localhost:3000/
 
 ```console
 Credentials to Test:
