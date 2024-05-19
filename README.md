@@ -1,38 +1,32 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Frontend Haciendola
 
-## Creating a project
+Web page to get a list of productos throught the API [Haciendola Backend](https://github.com/eggarcia98/backend-haciendola), There is an user validation through a jwt token session to check is the user can get the product list
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Used Technologies:
+* SvelteKit
+* Docker
 
-# create a new project in my-app
-npm create svelte@latest my-app
+## Steps to Execute:
+Step 1. If It doesn't exist, create the network "haciendola-network" in your docker environment:
+```console
+$ docker network create haciendola-network   
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Step 2. Build and Deploy it using the docker-compose configuration included in the repository:
+```console
+$ docker-compose up --build -d
 ```
 
-## Building
+Step 3. You can access to the web page in the URL: http:localhost:3000/
 
-To create a production version of your app:
+```console
+Credentials to Test:
 
-```bash
-npm run build
+Username: admin
+Password: admin
 ```
 
-You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
