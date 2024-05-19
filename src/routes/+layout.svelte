@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 
-	$: isAuthorized = $page.data.authorized;
+	$: isAuthorized = $page?.data?.authorized;
 </script>
 
 <div>

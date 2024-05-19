@@ -1,16 +1,20 @@
 import type { Actions, PageServerLoad } from './$types';
-import { redirect, fail } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
+import { PUBLIC_BACKEND_HOST, PUBLIC_BACKEND_PORT } from '$env/static/public';
 
 export const load: PageServerLoad = async ({ fetch, cookies }) => {
 	const AuthorizationToken = cookies.get('AuthorizationToken');
 
-	const response = await fetch('http://localhost:3006/api/user/authorizate', {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({ AuthorizationToken })
-	});
+	const response = await fetch(
+		`${PUBLIC_BACKEND_HOST}:${PUBLIC_BACKEND_PORT}/api/user/authorizate`,
+		{
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ AuthorizationToken })
+		}
+	);
 
 	const data = await response.json();
 	if (data.authorized) redirect(302, '/');
@@ -25,13 +29,16 @@ export const actions = {
 			password: formData?.password
 		};
 
-		const response = await event.fetch('http://localhost:3006/api/user/login', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(body)
-		});
+		const response = await event.fetch(
+			`${PUBLIC_BACKEND_HOST}:${PUBLIC_BACKEND_PORT}/api/user/login`,
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(body)
+			}
+		);
 
 		const authorization = await response.json();
 		const { message, authorized, token } = authorization;
@@ -43,7 +50,7 @@ export const actions = {
 			path: '/',
 			secure: true,
 			sameSite: 'strict',
-			maxAge: 120, // EXPIRE in 1min
+			maxAge: 120,
 			expires: new Date(new Date().getTime() + 120)
 		});
 
