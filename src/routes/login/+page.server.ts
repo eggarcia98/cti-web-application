@@ -50,8 +50,8 @@ export const actions = {
 			path: '/',
 			secure: true,
 			sameSite: 'strict',
-			maxAge: 120,
-			expires: new Date(new Date().getTime() + 120)
+			maxAge: 360, // 6min
+			expires: new Date(new Date().getTime() + 460) // 6min
 		});
 
 		redirect(302, '/');
