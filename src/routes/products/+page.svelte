@@ -9,7 +9,7 @@
 
 	// Function to filter data based on search query
 	function filterData() {
-		filteredList = data.products.filter((item) =>
+		filteredList = data.products.filter((item: any) =>
 			item.title.toLowerCase().includes(searchQuery.toLowerCase())
 		);
 		currentPage = 1; // Reset to first page on new search
@@ -40,7 +40,9 @@
 	$: totalPages = Math.ceil(totalItems / itemsPerPage);
 </script>
 
-<div class="max-w-6xl mx-auto w-full bg-white rounded-lg shadow-md dark:bg-neutral-800 pt-5 mt-10 max-w-6xl">
+<div
+	class="max-w-6xl mx-auto w-full bg-white rounded-lg shadow-md dark:bg-neutral-800 pt-5 mt-10 max-w-6xl"
+>
 	<div class="px-4 py-3 sm:px-6">
 		<input
 			type="text"
