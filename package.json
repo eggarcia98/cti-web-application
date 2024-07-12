@@ -41,6 +41,8 @@
 		"@sveltejs/adapter-node": "^5.0.1",
 		"@sveltejs/adapter-static": "^3.0.1",
 		"mdn-data": "^2.7.0",
-		"preline": "^2.1.0"
+		"preline": "^2.1.0",
+		"xml-js": "^1.6.11",
+		"xml2js": "^0.6.2"
 	}
 }

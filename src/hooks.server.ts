@@ -3,7 +3,7 @@ export const csr = false; // If both `csr` and `ssr` are `false`, nothing will b
 import { PUBLIC_BACKEND_HOST, PUBLIC_BACKEND_PORT } from '$env/static/public';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	const notAuthenticationRouteRequires = ['/error/auth', '/', '/login'];
+	const notAuthenticationRouteRequires = ['/error/auth', '/', '/login', '/products'];
 
 	const { cookies } = event;
 	const AuthorizationToken = cookies.get('AuthorizationToken');
@@ -27,7 +27,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const { authorized } = await response.json();
 		if (!authorized) redirect(302, '/error/auth');
 	} catch (error) {
-		if (notAuthenticationRouteRequires.includes(event.route.id ?? '')) return await resolve(event)
+		if (notAuthenticationRouteRequires.includes(event.route.id ?? '')) return await resolve(event);
 		else redirect(302, '/login');
 	}
 
