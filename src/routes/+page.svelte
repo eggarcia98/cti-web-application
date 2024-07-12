@@ -1,12 +1,8 @@
 <script lang="ts">
+	import image from '$lib/image.jpg';
 </script>
 
 <div class="dark:bg-neutral-900">
-	<!-- ========== HEADER ========== -->
-
-	<!-- ========== END HEADER ========== -->
-
-	<!-- ========== MAIN CONTENT ========== -->
 	<main id="content">
 		<!-- Features -->
 		<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -14,7 +10,8 @@
 				<h1 class="font-medium text-black text-2xl sm:text-4xl dark:text-white">Latest News</h1>
 			</div>
 			<div
-				class="min-h-[35vh] md:min-h-[75vh] bg-[url('https://images.unsplash.com/photo-1665686374006-b8f04cf62d57?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80')] bg-center bg-cover bg-no-repeat relative rounded-xl"
+				style={`background-image: url(${image})`}
+				class={` min-h-[35vh] bg-center bg-cover bg-no-repeat relative rounded-xl`}
 			>
 				<div
 					class="absolute bottom-0 start-0 end-0 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0"
@@ -58,23 +55,8 @@
 		<!-- End Features -->
 
 		<!-- Contact -->
-		<div class="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 lg:py-24 mx-auto">
-			<div class="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
-				<h2 class="font-medium text-black text-2xl sm:text-4xl dark:text-white">Contacts</h2>
-			</div>
-
+		<div class="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 mx-auto">
 			<div class="grid grid-cols-1 lg:grid-cols-1 lg:items-center gap-6 md:gap-8 lg:gap-12">
-				<div
-					class="aspect-w-16 aspect-h-6 overflow-hidden bg-gray-100 rounded-2xl dark:bg-neutral-800"
-				>
-					<img
-						class="group-hover:scale-105 transition-transform duration-500 ease-in-out object-cover rounded-2xl"
-						src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-						alt="Contact"
-					/>
-				</div>
-				<!-- End Col -->
-
 				<div class="space-y-8 lg:space-y-16">
 					<div>
 						<h3 class="mb-5 font-semibold text-black dark:text-white">Our contacts</h3>
