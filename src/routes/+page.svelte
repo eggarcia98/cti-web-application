@@ -1,17 +1,45 @@
 <script lang="ts">
 	import image from '$lib/image.jpg';
+	let scrollContainer;
+
+	const scrollLeft = () => {
+		scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
+	};
+
+	const scrollRight = () => {
+		scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
+	};
+	const categories = [
+		'Technology',
+		'Category B',
+		'Category B',
+		'Category B',
+		'Category B',
+		'Category B',
+		'Category B',
+		'Category B',
+		'Category B'
+	];
 </script>
 
 <div class="dark:bg-neutral-900">
 	<main id="content">
 		<!-- Features -->
 		<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-			<div class="mb-6 sm:mb-10 max-w-2xl text-center mx-auto">
-				<h1 class="font-medium text-black text-2xl sm:text-4xl dark:text-white">Latest News</h1>
+			<div class="mb-6 sm:mb-10 text-center mx-auto">
+				<div class="flex flex-wrap gap-3 justify-center">
+					{#each categories as category}
+						<div
+							class="bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+						>
+							<h4 class="text-md font-semibold mx-3">{category}</h4>
+						</div>
+					{/each}
+				</div>
 			</div>
 			<div
 				style={`background-image: url(${image})`}
-				class={` min-h-[35vh] bg-center bg-cover bg-no-repeat relative rounded-xl`}
+				class="min-h-[35vh] bg-center bg-cover bg-no-repeat relative rounded-xl"
 			>
 				<div
 					class="absolute bottom-0 start-0 end-0 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0"
@@ -20,13 +48,9 @@
 					<div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-neutral-800">
 						<div class="hidden md:block">
 							<h3 class="text-lg font-bold text-gray-800 sm:text-2xl dark:text-neutral-200">
-								Are you looking for a specific product?
+								Do you wnat to know more?
 							</h3>
-							<p class="mt-2 text-gray-800 dark:text-neutral-200">
-								Look out in our producs browser.
-							</p>
 						</div>
-
 						<div class="md:mt-16">
 							<a
 								class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-neutral-400"
@@ -42,9 +66,11 @@
 									stroke="currentColor"
 									stroke-width="2"
 									stroke-linecap="round"
-									stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3" /></svg
+									stroke-linejoin="round"
 								>
-								Products
+									<polygon points="5 3 19 12 5 21 5 3" />
+								</svg>
+								Go to our Products
 							</a>
 						</div>
 					</div>
@@ -53,86 +79,137 @@
 			</div>
 		</div>
 		<!-- End Features -->
+		<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+			<div class="relative">
+				<!-- Scroll Buttons -->
+				<button
+					class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-8 p-4 bg-white dark:bg-neutral-800 rounded-full shadow-md"
+					on:click={scrollLeft}
+				>
+					&larr;
+				</button>
+				<button
+					class="absolute top-1/2 right-0 transform -translate-y-1/2 p-4 translate-x-16 bg-white dark:bg-neutral-800 rounded-full shadow-md"
+					on:click={scrollRight}
+				>
+					&rarr;
+				</button>
 
-		<!-- Contact -->
-		<div class="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 mx-auto">
-			<div class="grid grid-cols-1 lg:grid-cols-1 lg:items-center gap-6 md:gap-8 lg:gap-12">
-				<div class="space-y-8 lg:space-y-16">
-					<div>
-						<h3 class="mb-5 font-semibold text-black dark:text-white">Our contacts</h3>
-
-						<!-- Grid -->
-						<div class="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
-							<div class="flex gap-4">
-								<svg
-									class="flex-shrink-0 size-5 text-gray-500 dark:text-neutral-500"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="1.5"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"
-									></path>
-									<path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"></path>
-								</svg>
-
-								<div class="grow">
-									<p class="text-sm text-gray-600 dark:text-neutral-400">Email us</p>
-									<p>
-										<a
-											class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
-											href="#"
-										>
-											eggarcia9814@gmail.com
-										</a>
-									</p>
-								</div>
-							</div>
-
-							<div class="flex gap-4">
-								<svg
-									class="flex-shrink-0 size-5 text-gray-500 dark:text-neutral-500"
-									xmlns="http://www.w3.org/2000/svg"
-									width="24"
-									height="24"
-									viewBox="0 0 24 24"
-									fill="none"
-									stroke="currentColor"
-									stroke-width="2"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								>
-									<path
-										d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-									/>
-								</svg>
-
-								<div class="grow">
-									<p class="text-sm text-gray-600 dark:text-neutral-400">Call us</p>
-									<p>
-										<a
-											class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
-											href="#"
-										>
-											+61 42 6432 597
-										</a>
-									</p>
-								</div>
-							</div>
-						</div>
-						<!-- End Grid -->
+				<!-- Scrollable Container -->
+				<div bind:this={scrollContainer} class="flex gap-8 p-8 overflow-x-auto scroll-smooth">
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
 					</div>
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
+					</div>
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
+					</div>
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
+					</div>
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
+					</div>
+					<div
+						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					>
+						<h4 class="text-md font-semibold">{'AAAA'}</h4>
+					</div>
+					<!-- Add more items as needed -->
 				</div>
-				<!-- End Col -->
 			</div>
+			<!-- Contact -->
+			<div class="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-1 lg:items-center gap-6 md:gap-8 lg:gap-12">
+					<div class="space-y-8 lg:space-y-16">
+						<div>
+							<h3 class="mb-5 font-semibold text-black dark:text-white">Our contacts</h3>
+
+							<!-- Grid -->
+							<div class="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
+								<div class="flex gap-4">
+									<svg
+										class="flex-shrink-0 size-5 text-gray-500 dark:text-neutral-500"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.5"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"
+										></path>
+										<path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10"></path>
+									</svg>
+
+									<div class="grow">
+										<p class="text-sm text-gray-600 dark:text-neutral-400">Email us</p>
+										<p>
+											<a
+												class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
+												href="#"
+											>
+												eggarcia9814@gmail.com
+											</a>
+										</p>
+									</div>
+								</div>
+
+								<div class="flex gap-4">
+									<svg
+										class="flex-shrink-0 size-5 text-gray-500 dark:text-neutral-500"
+										xmlns="http://www.w3.org/2000/svg"
+										width="24"
+										height="24"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path
+											d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+										/>
+									</svg>
+
+									<div class="grow">
+										<p class="text-sm text-gray-600 dark:text-neutral-400">Call us</p>
+										<p>
+											<a
+												class="relative inline-block font-medium text-black before:absolute before:bottom-0.5 before:start-0 before:-z-[1] before:w-full before:h-1 hover:before:bg-black focus:outline-none focus:before:bg-black dark:text-white dark:hover:before:bg-white dark:focus:before:bg-white"
+												href="#"
+											>
+												+61 42 6432 597
+											</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<!-- End Grid -->
+						</div>
+					</div>
+					<!-- End Col -->
+				</div>
+			</div>
+			<!-- End Contact -->
 		</div>
-		<!-- End Contact -->
 	</main>
 	<!-- ========== END MAIN CONTENT ========== -->
 
