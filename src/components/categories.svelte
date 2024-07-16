@@ -10,7 +10,8 @@
 	$: categoriasJson = {};
 
 	const getCategories = async () => {
-		console.log($page.url);
+		const categoryId = $page.url.searchParams.get('category_id');
+
 		const categoriesXmlRequest = ` 
             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.ctiwebservice.com/xml/school">
                 <soapenv:Header/>
@@ -36,7 +37,6 @@
 			const data = await response.text();
 			const xmlParsedString: any = xml2js.xml2json(data, { compact: true, spaces: 4 });
 			const xmlParsedJson = JSON.parse(xmlParsedString);
-			console.log(categoriasJson);
 			const categoriesArray =
 				xmlParsedJson['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns2:GetCategoriesResponse'][
 					'ns2:categories'
@@ -65,7 +65,7 @@
 			{#each categories as { name, id }}
 				<button
 					class="bg bg-opacity-10 rounded-md shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					on:click={() => goto(`/products?category=${id}`)}
+					on:click={() => goto(`/products?category_id=${id}`)}
 				>
 					<h4 {id} class="text-md font-semibold mx-3">{name}</h4>
 				</button>

@@ -2,12 +2,14 @@ import type { PageServerLoad } from './$types';
 import { PUBLIC_BACKEND_HOST, PUBLIC_BACKEND_PORT } from '$env/static/public';
 import xml2js from 'xml-js';
 
-export const load: PageServerLoad = async ({ fetch }) => {
+export const load: PageServerLoad = async ({ fetch, url }) => {
+	const categoryId = url.searchParams.get('category_id');
 	const xmlRequest = `
 			<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.ctiwebservice.com/xml/school">
 				<soapenv:Header/>
 				<soapenv:Body>
 					<sch:GetProductsRequest>
+					<sch:category_id>${categoryId ? categoryId : 0}</sch:category_id>
 					</sch:GetProductsRequest>
 				</soapenv:Body>
 			</soapenv:Envelope>
@@ -42,8 +44,6 @@ export const load: PageServerLoad = async ({ fetch }) => {
 			price: parseFloat(product['ns2:price']['_text']),
 			description: product['ns2:description']['_text']
 		}));
-
-		console.log(mappedProducts);
 
 		return {
 			products: mappedProducts

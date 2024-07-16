@@ -53,7 +53,7 @@
 					/>
 				</svg>
 
-				<div class="">CTI E-COMMERCE</div>
+				<div class="px-2">CTI E-COMMERCE</div>
 			</a>
 			<div class="sm:order-3 flex items-center gap-x-2">
 				<button
