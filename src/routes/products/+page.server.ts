@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 				</soapenv:Body>
 			</soapenv:Envelope>
 		`;
-	console.log(`${PUBLIC_BACKEND_HOST}:${PUBLIC_BACKEND_PORT}/service/products`);
+
 	try {
 		const response = await fetch(
 			`http://${PUBLIC_BACKEND_HOST}:${PUBLIC_BACKEND_PORT}/service/products`,

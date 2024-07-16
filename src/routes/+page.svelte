@@ -1,42 +1,14 @@
 <script lang="ts">
 	import image from '$lib/image.jpg';
-	let scrollContainer;
-
-	const scrollLeft = () => {
-		scrollContainer.scrollBy({ left: -300, behavior: 'smooth' });
-	};
-
-	const scrollRight = () => {
-		scrollContainer.scrollBy({ left: 300, behavior: 'smooth' });
-	};
-	const categories = [
-		'Technology',
-		'Category B',
-		'Category B',
-		'Category B',
-		'Category B',
-		'Category B',
-		'Category B',
-		'Category B',
-		'Category B'
-	];
+	import Categories from '../components/categories.svelte';
 </script>
 
 <div class="dark:bg-neutral-900">
 	<main id="content">
 		<!-- Features -->
 		<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-			<div class="mb-6 sm:mb-10 text-center mx-auto">
-				<div class="flex flex-wrap gap-3 justify-center">
-					{#each categories as category}
-						<div
-							class="bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-						>
-							<h4 class="text-md font-semibold mx-3">{category}</h4>
-						</div>
-					{/each}
-				</div>
-			</div>
+			<Categories />
+
 			<div
 				style={`background-image: url(${image})`}
 				class="min-h-[35vh] bg-center bg-cover bg-no-repeat relative rounded-xl"
@@ -80,56 +52,6 @@
 		</div>
 		<!-- End Features -->
 		<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-			<div class="relative">
-				<!-- Scroll Buttons -->
-				<button
-					class="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-8 p-4 bg-white dark:bg-neutral-800 rounded-full shadow-md"
-					on:click={scrollLeft}
-				>
-					&larr;
-				</button>
-				<button
-					class="absolute top-1/2 right-0 transform -translate-y-1/2 p-4 translate-x-16 bg-white dark:bg-neutral-800 rounded-full shadow-md"
-					on:click={scrollRight}
-				>
-					&rarr;
-				</button>
-
-				<!-- Scrollable Container -->
-				<div bind:this={scrollContainer} class="flex gap-8 p-8 overflow-x-auto scroll-smooth">
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<div
-						class="min-w-[250px] bg bg-opacity-10 rounded-sm shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
-					>
-						<h4 class="text-md font-semibold">{'AAAA'}</h4>
-					</div>
-					<!-- Add more items as needed -->
-				</div>
-			</div>
 			<!-- Contact -->
 			<div class="max-w-7xl px-4 lg:px-6 lg:px-8 py-12 mx-auto">
 				<div class="grid grid-cols-1 lg:grid-cols-1 lg:items-center gap-6 md:gap-8 lg:gap-12">
