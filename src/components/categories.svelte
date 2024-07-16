@@ -1,12 +1,16 @@
 <script lang="ts">
 	import { PUBLIC_BACKEND_HOST, PUBLIC_BACKEND_PORT } from '$env/static/public';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+
 	$: categories = [];
 	import xml2js from 'xml-js';
+	import { goto } from '$app/navigation';
 
 	$: categoriasJson = {};
 
 	const getCategories = async () => {
+		console.log($page.url);
 		const categoriesXmlRequest = ` 
             <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.ctiwebservice.com/xml/school">
                 <soapenv:Header/>
@@ -61,6 +65,7 @@
 			{#each categories as { name, id }}
 				<button
 					class="bg bg-opacity-10 rounded-md shadow-md pt-5 pb-5 px-8 relative overflow-hidden border border-grey"
+					on:click={() => goto(`/products?category=${id}`)}
 				>
 					<h4 {id} class="text-md font-semibold mx-3">{name}</h4>
 				</button>

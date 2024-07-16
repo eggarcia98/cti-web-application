@@ -1,5 +1,6 @@
 <script lang="ts">
 	import image from '$lib/image.jpg';
+
 	import Categories from '../components/categories.svelte';
 </script>
 
